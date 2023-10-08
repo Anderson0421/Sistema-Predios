@@ -1,0 +1,47 @@
+{% extends 'layout.html' %}
+{% block content %}
+    <div class="col-lg-3 col-6">
+        <div class="small-box bg-warning">
+            <div class="inner">
+                <h3>
+                    {{ predio_count }}
+                 </h3>
+                <p>{% if otros_modelos_count <= 1 %}
+                	Predio registrado
+                    {% else %}
+                    Predios registrados
+                {% endif %}
+
+                </p>
+            </div>
+            <div class="icon">
+                <i class="fas fa-user-plus"></i>
+            </div>
+            <a href="{% url 'userhome' %}" class="small-box-footer">
+                Mayor informacion <i class="fas fa-arrow-circle-right"></i>
+            </a>
+        </div>
+    </div>
+     <div class="col-lg-3 col-6">
+        <div class="small-box bg-cyan">
+            <div class="inner">
+                <h3>
+                    {{ perfil_count }}
+                 </h3>
+                <p>{% if perfil_count <= 1 %}
+                	Usuarios registrado
+                    {% else %}
+                    Usuarios registrados
+                {% endif %}
+
+                </p>
+            </div>
+            <div class="icon">
+                <i class="fas fa-users"></i>
+            </div>
+            <a href="{% url 'predio' %}" class="small-box-footer">
+                Mayor informacion <i class="fas fa-arrow-circle-right"></i>
+            </a>
+        </div>
+    </div>
+{% endblock %}

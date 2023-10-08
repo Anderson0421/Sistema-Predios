@@ -1,0 +1,73 @@
+{% extends 'vtc/bodyuser.html' %}
+{% block content %}
+    <code>{{ date_now }}</code>
+    <div class="card">
+      <div class="card-header border-bottom">
+          <h3 class="mb-0">Mis Predios</h3>
+      </div>
+    </div>
+    {% for predio in object_list %}
+         <div class="card">
+            <ul>
+                <li class="predio-item">
+                    <strong>CUC:</strong> {{ predio.cuc }}<br>
+                </li>
+                <li class="predio-item">
+                    <strong>Código Catastral:</strong> {{ predio.cod_ref_catastral }}<br>
+                </li>
+                <li class="predio-item">
+                    <h4>Ubicacion</h4>
+                    <strong>Departamento:</strong> {{ predio.departamento }} <strong class="ml-3">Provincia:</strong> {{ predio.provincia }}<strong class="ml-3">Distrito:</strong>  {{ predio.distrito }}<br>
+                </li>
+                <li class="predio-item">
+                    <strong>Sector:</strong> {{ predio.sector }}<br>
+                </li>
+                  <li class="predio-item">
+                    <strong>Manzana:</strong> {{ predio.manzana }} <strong class="ml-4">Lote:</strong> {{ predio.lote }}<br>
+                </li>
+                <li class="predio-item">
+                    <strong>Propietario:</strong> {{ predio.propietario }}
+                 </li>
+            </ul>
+        </div>
+    {% endfor %}
+
+
+<style>
+
+
+        .predio-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .predio-item {
+            margin-bottom: 18px;
+            margin-right: 10px;
+            padding: 15px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(13, 32, 55, 0.85);
+
+            transition: transform 0.3s ease;
+        }
+         .predio-item:hover{
+                transform: scale(1.01); /* Escala ligeramente al pasar el cursor */
+         }
+
+        .predio-item strong {
+            color: #333;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+
+            .predio-item {
+                padding: 10px;
+            }
+        }
+    </style>
+{% endblock %}

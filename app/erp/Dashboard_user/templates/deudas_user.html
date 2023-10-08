@@ -1,0 +1,28 @@
+{% extends 'vtc/bodyuser.html' %}
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <h3>Revise sus deudas pendientes aquí</h3>
+                <h6><a href="{% url 'historial_deudas' %}">Historial de deudas pasadas <i class="fas fa-book-open ml-1"></i> </a></h6>
+                <ul class="list-group">
+                    <h2>Tiene {{ user_profile.Deudas }} Deudas</h2>
+                    {% for deuda in deudas_pendientes %}
+                    <li class="list-group-item mb-3" style="background-color: rgba(15,89,137,0.75) !important;">
+                        <p class="text-white">Fecha: {{ deuda.fecha }}</p>
+                        <ul class="list-group mt-2">
+                            <li class="list-group-item">
+                                Monto: {{ deuda.monto_deuda }}
+                            </li>
+                            <li class="list-group-item">
+                                Estado: {{ deuda.estado }}
+                            </li>
+                        </ul>
+                    </li>
+                    {% endfor %}
+                </ul>
+
+            </div>
+        </div>
+    </div>
+{% endblock %}

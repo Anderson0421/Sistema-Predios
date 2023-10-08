@@ -1,0 +1,77 @@
+{% extends 'vtc/bodyuser.html' %}
+{% block content %}
+    <div class="col-md-12">
+    <div class="tab-content pl-50">
+        <div class="card">
+            <div class="card-header border-bottom">
+                <h3 class="mb-0">Mi Perfil</h3>
+            </div>
+
+        </div>
+    </div>
+</div>
+    <div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-body" style="display: flex; align-items: center;">
+                    <div style="margin-right: 20px;">
+                        <img src="{{ profile.image.url }}" class="img-fluid rounded-circle" alt="Perfil" style="width: 150px; height: 150px; object-fit: cover;">
+                    </div>
+                    <div class="col-md-4" style="display: flex; flex-direction: column;">
+                        <div class="form-group">
+                            <input class="form-control" disabled type="text" value="Nombres - {{ profile.nombres }}">
+                        </div>
+                        <div class="form-group">
+                            <input class="form-control" disabled type="text" value="Apellidos - {{ profile.apellidos }}">
+                        </div>
+                        <div class="form-group">
+                            <input class="form-control" disabled type="text" value="Teléfono - {{ profile.telefono }}">
+                        </div>
+                        <div class="form-group">
+                            <input class="form-control" disabled type="text" value="Email - {{ user.email }}">
+                        </div>
+                        <div class="form-group">
+                            <input class="form-control" disabled type="text" value="Codigo de rentas - {{ profile.cod_contri_rentas }}">
+                        </div>
+
+                    </div>
+                    <div class="col-md-4" style="display: flex; flex-direction: column;">
+                         <div class="form-group">
+                            <input class="form-control" disabled type="text" value="Codigo Predial de Rentas - {{ profile.cod_predial_rentas }}">
+                        </div>
+                        <div class="form-group">
+                            <input class="form-control" disabled type="text" value="RUC - {{ profile.ruc }}">
+                        </div>
+                         <div class="form-group">
+                            <input class="form-control" disabled type="text" value="Persona Juridica - {{ profile.persona_juridica }}">
+                        </div>
+                        <div class="form-group">
+                            <div class="input-group">
+                                <input class="form-control" disabled type="text" value="Deudas - {{ profile.Deudas }}">
+                                <div class="input-group-append">
+                                     <a href="{% url 'deudas_user' %}" class="input-group-text d-inline align-middle">
+                                       <i class="fas fa-eye"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <input class="form-control" disabled type="text" value="DNI - {{ profile.DNI }}">
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+            </div>
+             <a  href="{% url 'profile_update' %}" class="btn btn-success col-md-3" type="button">Editar Perfil</a>
+        </div>
+
+    </div>
+</div>
+
+
+
+{% endblock %}

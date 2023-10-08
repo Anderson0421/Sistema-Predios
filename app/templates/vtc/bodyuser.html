@@ -1,0 +1,39 @@
+{% extends 'home.html' %}
+{% block body %}
+    <body class="hold-transition sidebar-mini layout-fixed">
+    <div class="wrapper">
+        <!-- Header -->
+        {% include 'mvt/header.html' %}
+        <!-- Sidebar -->
+        {% include 'mvt/sidebar.html' %}
+        <!-- Content -->
+        <div class="content-wrapper">
+            <div class="content-header">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-sm-6">
+                        </div>
+                        <div class="col-sm-6">
+                            <ol class="breadcrumb float-sm-right">
+                                <li class="breadcrumb-item"><a href="#">Home</a></li>
+                                <li class="breadcrumb-item"><a href="{{ list_url }}">{{ entity }}</a></li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="content">
+                <div class="container-fluid">
+                    {% block content %}
+
+                    {% endblock %}
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Block javascript -->
+    {% block javascript %}
+
+    {% endblock %}
+    </body>
+{% endblock %}

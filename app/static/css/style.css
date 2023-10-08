@@ -1,0 +1,45 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,300;0,400;0,500;1,200;1,300;1,400&family=Mooli&display=swap');
+body{
+    font-family: 'Kanit', sans-serif;
+}
+.dataTables_info {
+    overflow: hidden !important;
+}
+#nav-icons{
+    color: #C0C0C0;
+}
+
+.nav-item a:hover #nav-icons {
+    color: #006400;
+}
+#nav-icons:hover{
+    transition: transform ease-out 0.4s;
+    transform: translate(2px,0);
+}
+
+/* styles.css */
+
+/* styles.css */
+
+.custom-input {
+    width: 100% !important;
+    padding: 20px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    margin-bottom: 10px;
+    transition: border-color 0.3s;
+}
+
+
+.custom-input:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+
+@media (min-width: 768px) {
+    .custom-input {
+        width: 70%;
+    }
+}

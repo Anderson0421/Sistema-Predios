@@ -1,0 +1,93 @@
+{% extends 'layout.html' %}
+{% load static %}
+{% block head %}
+    <link rel="stylesheet" href="{% static 'lib/select2-4.0.13/select2-4.0.13/dist/css/select2.min.css' %}">
+    <link rel="stylesheet" href="{% static 'lib/select2-4.0.13/select2-4.0.13/select2-bootstrap4.min.css' %}">
+    <script src="{% static 'lib/select2-4.0.13/select2-4.0.13/dist/js/select2.min.js' %}"></script>
+{% endblock %}
+{% load widget_tweaks %}
+{% block content %}
+    <form method="post"  enctype="multipart/form-data">
+        <div class="card card-dark">
+
+            <div class="card-header" style="background-color: #022F50 !important;">
+                <h3 class="card-title">
+                    {% if action == 'add' %}
+                        <i style="margin-right: 10px" class="fas fa-user-plus"></i>
+                    {% else %}
+                        <i style="margin-right: 10px" class="fas fa-user-edit"></i>
+                    {% endif %}
+
+                    {{ title }}
+                </h3>
+            </div>
+            <div class="card-body">
+                {% csrf_token %}
+                <input type="hidden" name="action" value="{{ action }}">
+                {% for field in form.visible_fields %}
+                    <div class="form-group">
+                        <label>{{ field.label }}:</label>
+                        {{ field }}
+                    </div>
+                {% endfor %}
+            </div>
+            <div class="card-footer">
+                <button type="submit" class="btn btn-primary btn-flat">
+                    <i class="fas fa-save"></i> Guardar registro
+                </button>
+                <a href="{{ list_url }}" class="btn btn-danger btn-flat">
+                    <i class="fas fa-times"></i> Cancelar
+                </a>
+            </div>
+        </div>
+    </form>
+    {% block javascript %}
+        <script>
+        $(document).ready(function () {
+                // Función para habilitar o deshabilitar el campo RUC
+                function toggleRucField() {
+                    var personaJuridica = $('#id_persona_juridica').prop('checked');
+                    var rucInput = $('#id_ruc');
+
+                    // Verificar si el checkbox de persona jurídica está marcado
+                    if (personaJuridica) {
+                        // Si está marcado, desactivar el campo RUC y borrar su valor
+                        rucInput.prop('disabled', true);
+                        rucInput.val('');
+                    } else {
+                        // Si no está marcado, habilitar el campo RUC
+                        rucInput.prop('disabled', false);
+                    }
+                }
+
+                // Llamar a la función al cargar la página
+                toggleRucField();
+
+                // Llamar a la función cuando cambie el valor de persona_juridica
+                $('#id_persona_juridica').change(function () {
+                    toggleRucField();
+                });
+            });
+
+        errors = ''
+         {% if form.errors %}
+             {% for field in form %}
+                 {% for error in field.errors %}
+                     errors+='{{ error }}'
+                 {% endfor %}
+             {% endfor %}
+             Swal.fire({
+                 title : 'Error!',
+                 text: errors,
+                 icon: 'error',
+                 confirmButtonText: 'Ok'
+             })
+         {% endif %}
+
+        $('.select2').select2({
+            theme : "bootstrap4"
+        });
+
+        </script>
+    {% endblock %}
+{% endblock %}
