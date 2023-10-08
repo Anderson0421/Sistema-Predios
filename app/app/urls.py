@@ -10,7 +10,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('erp.Dashboard_user.urls')),
     path('', include('erp.dashboard.urls')),
-    path('', include('erp.usuarios.urls')),
     path('', include('erp.userauths.urls')),
 
     path('login/', ViewLogin.as_view(), name='login'),

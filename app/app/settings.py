@@ -39,7 +39,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'erp.dashboard',
     'erp.login',
-    'erp.usuarios',
     'erp.Dashboard_user',
     'erp.userauths',
 
