@@ -1,0 +1,31 @@
+{% extends 'list.html' %}
+{% block columns %}
+    <th scope="col" style="width: 8%;">DNI del Usuario</th>
+    <th scope="col" style="width: 5% !important;">Nombre</th>
+    <th scope="col" style="width: 8%;">Telefono</th>
+    <th scope="col" style="width: 5%;">Monto</th>
+    <th scope="col" style="width: 8%;">Fecha</th>
+    <th scope="col" style="width: 10%;">Estado</th>
+    <th scope="col" style="width: 10%;">Opciones</th>
+    {% endblock %}
+{% block rows %}
+    {% for obj in object_list %}
+            <tr>
+                <td>{{ obj.contribuyente.DNI }}</td>
+                <td>{{ obj.contribuyente.nombres }}</td>
+                <td>{{ obj.contribuyente.telefono }}</td>
+                <td>{{ obj.monto_deuda }}</td>
+                <td>{{ obj.fecha }}</td>
+                <td>{{ obj.estado }}</td>
+
+                <td class="text-center">
+                    <a href="{% url 'edit' obj.id %}" class="btn btn-primary btn-xs btn-flat">
+                        <i class="fas fa-edit"></i>
+                    </a>
+                    <a href="#" class="btn btn-danger btn-xs btn-flat">
+                        <i class="fas fa-trash"></i>
+                    </a>
+                </td>
+            </tr>
+        {% endfor %}
+    {% endblock %}
