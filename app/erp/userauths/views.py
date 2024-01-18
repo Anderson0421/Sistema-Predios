@@ -24,8 +24,8 @@ def register_view(request):
 
             messages.success(request, f"Hey {username}, Tu cuenta fue creada exitosamente!")
             new_user =authenticate(username=form.cleaned_data['email'],
-                                     password=form.cleaned_data['password1']
-                                     )
+                                    password=form.cleaned_data['password1']
+                                    )
             login(request, new_user)
             return redirect('home')
 

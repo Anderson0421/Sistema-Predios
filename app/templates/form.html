@@ -9,7 +9,6 @@
 {% block content %}
     <form method="post"  enctype="multipart/form-data">
         <div class="card card-dark">
-
             <div class="card-header" style="background-color: #022F50 !important;">
                 <h3 class="card-title">
                     {% if action == 'add' %}
@@ -24,11 +23,13 @@
             <div class="card-body">
                 {% csrf_token %}
                 <input type="hidden" name="action" value="{{ action }}">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d15608.771322963388!2d-77.0679477!3d-12.0302419!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses-419!2spe!4v1705607341464!5m2!1ses-419!2spe" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                 {% for field in form.visible_fields %}
                     <div class="form-group">
                         <label>{{ field.label }}:</label>
                         {{ field }}
                     </div>
+                    
                 {% endfor %}
             </div>
             <div class="card-footer">

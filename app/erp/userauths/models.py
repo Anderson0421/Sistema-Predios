@@ -61,12 +61,7 @@ ESTADO_CHOICES = (
 class Predio(models.Model):
     cuc = models.CharField(max_length=50, unique=True)
     cod_ref_catastral = models.CharField(max_length=13)
-    departamento = models.CharField(max_length=50)
-    provincia = models.CharField(max_length=50)
-    distrito = models.CharField(max_length=50)
-    sector = models.CharField(max_length=50)
-    manzana = models.CharField(max_length=50)
-    lote = models.CharField(max_length=50)
+    ubicacion = models.CharField(max_length=500)
     propietario = models.ForeignKey(Profile, on_delete=models.SET_NULL, null=True, blank=True)
 
 
